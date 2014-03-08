@@ -17,7 +17,7 @@ Config values are created in a JSON-formatted file, for example:
 		"S_TITLE": "This is a sweet title"
 	}
 	
-where the prefix before the underline must correspond to each type. This allows for creating custom config value types in extensions to nfig, such as SFML's sf::Color
+where the prefix before the underline must correspond to each type. This allows for creating custom config value types in extensions to nfig, such as colour. You'll need to include a parsing function to create a Value of this type.
 
 	{
 		"CLR_BACKGROUND": [255, 128, 0]
@@ -25,7 +25,7 @@ where the prefix before the underline must correspond to each type. This allows 
 
 Test code is included.
 
-# Dependencies
+## Dependencies
 
 For handling parameters of unknown type:
 

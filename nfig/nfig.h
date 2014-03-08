@@ -3,6 +3,7 @@
 #include <riffer.h>
 
 #include <picojson.h>
+#define pj picojson
 
 namespace nfig {
     //DEFAULTS=========
@@ -40,13 +41,36 @@ namespace nfig {
     
     rfr::Chunk _nfig_chunk;
     
-	bool load_file(const char* filename) {
+    bool load_file(const char* filename) {
+        std::ifstream file;
+        file.open (filename);
+        if (!file.is_open()) {
+            std::cerr << "Error " << filename << " file not open.\n";
+            return false;
+        }
         
-    
-    
-        //TODO load _nfig_chunk
+        std::string err;
+        picojson::value root;
+        err = pj::parse(root, file);
+        
+        if (! err.empty()) {
+            std::cerr << " file parse error: " << err << std::endl;
+        } else {
+            //std::cout << "No parse error!\n";
+        }
 
-        return false;
+        pj::value::object obj = root.get<pj::object>();
+        for (pj::value::object::const_iterator i = obj.begin();
+            i != obj.end();
+            ++i) {
+            
+            std::cout << i->first << "\n";
+            //i->first is value name
+            //i->secont is pj::value
+            
+        }
+        
+        return true;
 	}
     
     template<class T>

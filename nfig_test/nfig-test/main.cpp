@@ -13,7 +13,7 @@
 
 int main() {
 
-	if(!nfig::load_file("config.json.txt")) {
+	if(!nfig::load_file("../../config.json.txt")) {
 		std::cerr << "Could not load file. \n";
 		return -1;
 	} 

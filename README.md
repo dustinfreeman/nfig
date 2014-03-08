@@ -25,4 +25,12 @@ where the prefix before the underline must correspond to each type. This allows 
 
 Test code is included.
 
+# Dependencies
 
+For handling parameters of unknown type:
+
+[riffer](https://github.com/dustinfreeman/riffer)
+
+For parsing JSON-format config files:
+
+[picojson](https://github.com/ptarabbia/picojson)

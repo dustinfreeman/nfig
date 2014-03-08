@@ -3,5 +3,6 @@
 	"I_WIDTH": 100,
 	"I_HEIGHT": 100,
 	"F_WEIGHT": 10.3,
-	"S_TITLE": "This is a sweet title"
+	"S_TITLE": "This is a sweet title",
+	"CLR_BACKGROUND": [255, 128, 0]
 }

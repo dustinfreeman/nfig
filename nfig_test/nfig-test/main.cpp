@@ -13,16 +13,18 @@
 
 int main() {
 
-	if(!nfig::load_file("../../config.json.txt")) {
+    nfig config;
+
+	if(!config.load_file("../../config.json.txt")) {
 		std::cerr << "Could not load file. \n";
 		return -1;
 	} 
 	
-	assert(nfig::get<bool>("MUTE_MUSIC") == false);
-	assert(nfig::get<int>("WIDTH") == 100);
-	assert(nfig::get<int>("HEIGHT") == 100);
-	assert(nfig::get<float>("WEIGHT") == 10.3);
-	assert(strcmp(nfig::get<const char*>("MUTE_MUSIC"), "This is a sweet title") == 0);
+	assert(config.get<bool>("MUTE_MUSIC") == false);
+	assert(config.get<int>("WIDTH") == 100);
+	assert(config.get<int>("HEIGHT") == 100);
+	assert(config.get<float>("WEIGHT") == 10.3);
+	assert(strcmp(config.get<const char*>("MUTE_MUSIC"), "This is a sweet title") == 0);
 
 }
 

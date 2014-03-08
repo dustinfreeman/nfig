@@ -5,41 +5,25 @@
 #include <picojson.h>
 #define pj picojson
 
-namespace nfig {
-    //DEFAULTS=========
-    //a default is returned whenever the get() value doesn't exist.
-    
-    template<class T>
-    T get_default_value();
-    
+class nfig {
+protected:
     const bool _DEFAULT_BOOL = true;
     const int _DEFAULT_INT = -1;
     const float _DEFAULT_FLOAT = -0.5f;
     const char* _DEFAULT_CHAR_STR = "default string";
     
-    template<>
-    bool get_default_value<bool>() {
-        return _DEFAULT_BOOL;
-    }
-    
-    template<>
-    int get_default_value<int>() {
-        return _DEFAULT_INT;
-    }
-    
-    template<>
-    float get_default_value<float>() {
-        return _DEFAULT_FLOAT;
-    }
-    
-    template<>
-    const char* get_default_value<const char*>() {
-        return _DEFAULT_CHAR_STR;
-    }
-    
     //=================
+    rfr::Chunk _chunk;
     
-    rfr::Chunk _nfig_chunk;
+    virtual void load_value(std::string value_name, pj::value value) {
+        // this function should be overloaded for custom types.
+        
+    }
+
+public:
+
+    template<class T>
+    T get_default_value();
     
     bool load_file(const char* filename) {
         std::ifstream file;
@@ -63,19 +47,16 @@ namespace nfig {
         for (pj::value::object::const_iterator i = obj.begin();
             i != obj.end();
             ++i) {
+            //std::cout << i->first << "\n";
             
-            std::cout << i->first << "\n";
-            //i->first is value name
-            //i->secont is pj::value
-            
+            load_value(i->first, i->second);
         }
-        
         return true;
 	}
     
     template<class T>
 	T get (std::string value_name){
-        T* value = _nfig_chunk.get_parameter_by_tag<T>(value_name);
+        T* value = _chunk.get_parameter_by_tag<T>(value_name);
         
         if (value == nullptr) {
             std::cerr << "Warning: nfig could not find value " << value_name << ". Returning default value.\n";
@@ -86,6 +67,26 @@ namespace nfig {
     }
 
 };
+
+template<>
+bool nfig::get_default_value<bool>() {
+    return _DEFAULT_BOOL;
+}
+
+template<>
+int nfig::get_default_value<int>() {
+    return _DEFAULT_INT;
+}
+
+template<>
+float nfig::get_default_value<float>() {
+    return _DEFAULT_FLOAT;
+}
+
+template<>
+const char* nfig::get_default_value<const char*>() {
+    return _DEFAULT_CHAR_STR;
+}
 
 //template<>
 //bool nfig::get<bool>(std::string value_name){

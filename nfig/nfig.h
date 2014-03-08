@@ -18,6 +18,15 @@ protected:
     virtual void load_value(std::string value_name, pj::value value) {
         // this function should be overloaded for custom types.
         
+        if (value_name.substr(0, 2) == "B_")
+            _chunk.add_parameter_by_tag(value_name, value.get<bool>());
+        if (value_name.substr(0, 2) == "I_")
+            _chunk.add_parameter_by_tag(value_name, (int)value.get<long>());
+        if (value_name.substr(0, 2) == "F_")
+            _chunk.add_parameter_by_tag(value_name, (float)value.get<double>());
+        if (value_name.substr(0, 2) == "S_")
+            _chunk.add_parameter_by_tag(value_name, value.get<std::string>());
+        
     }
 
 public:

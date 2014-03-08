@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>90BB8EF3-1231-405C-A947-44FDCA2B2562</string>
+	<key>IDESourceControlProjectName</key>
+	<string>nfig-test</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>73092522-5EA1-4B6A-9BF6-C182F0D7D8AC</key>
+		<string>https://github.com/dustinfreeman/nfig.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>nfig_test/nfig-test.xcodeproj/project.xcworkspace</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>73092522-5EA1-4B6A-9BF6-C182F0D7D8AC</key>
+		<string>../../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://github.com/dustinfreeman/nfig.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>110</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>73092522-5EA1-4B6A-9BF6-C182F0D7D8AC</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>73092522-5EA1-4B6A-9BF6-C182F0D7D8AC</string>
+			<key>IDESourceControlWCCName</key>
+			<string>nfig</string>
+		</dict>
+	</array>
+</dict>
+</plist>

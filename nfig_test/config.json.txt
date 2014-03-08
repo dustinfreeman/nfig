@@ -1,0 +1,7 @@
+{
+	"B_MUTE_MUSIC": false,
+	"I_WIDTH": 100,
+	"I_HEIGHT": 100,
+	"F_WEIGHT": 10.3,
+	"S_TITLE": "This is a sweet title"
+}

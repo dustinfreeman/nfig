@@ -11,6 +11,7 @@ protected:
     const int _DEFAULT_INT = -1;
     const float _DEFAULT_FLOAT = -0.5f;
     const char* _DEFAULT_CHAR_STR = "default string";
+    const std::string _DEFAULT_STR = "default std::string";
     
     //=================
     rfr::Chunk _chunk;
@@ -97,26 +98,7 @@ const char* nfig::get_default_value<const char*>() {
     return _DEFAULT_CHAR_STR;
 }
 
-//template<>
-//bool nfig::get<bool>(std::string value_name){
-//    if (get_value<bool>(value_name, &nfig_value)) {
-//        nfig_value->value;
-//    } else {
-//        return nfig::_DEFAULT_BOOL;
-//    }
-//}
-//
-//template<>
-//int nfig::get<int>(std::string value_name){
-//	return nfig::_DEFAULT_INT;
-//}
-//
-//template<>
-//float nfig::get<float>(std::string value_name){
-//	return nfig::_DEFAULT_FLOAT;
-//}
-//
-//template<>
-//const char* nfig::get<const char*>(std::string value_name){
-//	return nfig::_DEFAULT_CHAR_STR;
-//}
+template<>
+std::string nfig::get_default_value<std::string>() {
+    return _DEFAULT_STR;
+}

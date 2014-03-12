@@ -21,12 +21,12 @@ protected:
         
         if (value_name.substr(0, 2) == "B_")
             _chunk.add_parameter_by_tag(value_name, value.get<bool>());
-        if (value_name.substr(0, 2) == "I_")
+        else if (value_name.substr(0, 2) == "I_")
             _chunk.add_parameter_by_tag(value_name, (int)value.get<long>());
-        if (value_name.substr(0, 2) == "F_")
-            _chunk.add_parameter_by_tag(value_name, (float)value.get<double>());
-        if (value_name.substr(0, 2) == "S_")
+        else if (value_name.substr(0, 2) == "S_")
             _chunk.add_parameter_by_tag(value_name, value.get<std::string>());
+        else if (value_name.substr(0, 2) == "F_")// || value_name.find("_") == std::string::npos)
+            _chunk.add_parameter_by_tag(value_name, (float)value.get<double>());
         
     }
 

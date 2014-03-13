@@ -1,4 +1,6 @@
 #include <map>
+#include <fstream>
+#include <string>
 
 #include <riffer.h>
 
@@ -64,6 +66,10 @@ public:
         return true;
 	}
     
+    bool load_file(std::string filename) {
+        return load_file(filename.c_str());
+    }
+    
     template<class T>
 	T get (std::string value_name){
         T* value = _chunk.get_parameter_by_tag<T>(value_name);
@@ -79,26 +85,26 @@ public:
 };
 
 template<>
-bool nfig::get_default_value<bool>() {
+inline bool nfig::get_default_value<bool>() {
     return _DEFAULT_BOOL;
 }
 
 template<>
-int nfig::get_default_value<int>() {
+inline int nfig::get_default_value<int>() {
     return _DEFAULT_INT;
 }
 
 template<>
-float nfig::get_default_value<float>() {
+inline float nfig::get_default_value<float>() {
     return _DEFAULT_FLOAT;
 }
 
 template<>
-const char* nfig::get_default_value<const char*>() {
+inline const char* nfig::get_default_value<const char*>() {
     return _DEFAULT_CHAR_STR;
 }
 
 template<>
-std::string nfig::get_default_value<std::string>() {
+inline std::string nfig::get_default_value<std::string>() {
     return _DEFAULT_STR;
 }

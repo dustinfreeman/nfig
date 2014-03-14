@@ -20,16 +20,22 @@ protected:
     
     virtual void load_value(std::string value_name, pj::value value) {
         // this function should be overloaded for custom types.
-        
         if (value_name.substr(0, 2) == "B_")
             _chunk.add_parameter_by_tag(value_name, value.get<bool>());
         else if (value_name.substr(0, 2) == "I_")
             _chunk.add_parameter_by_tag(value_name, (int)value.get<long>());
         else if (value_name.substr(0, 2) == "S_")
             _chunk.add_parameter_by_tag(value_name, value.get<std::string>());
-        else if (value_name.substr(0, 2) == "F_")// || value_name.find("_") == std::string::npos)
-            _chunk.add_parameter_by_tag(value_name, (float)value.get<double>());
-        
+        else if (value_name.substr(0, 2) == "F_") {// || value_name.find("_") == std::string::npos)
+            float _value;
+            //error catching in case someone forgets to add ".0" at the end of a number to force it to float.
+            if (value.is<int>())
+                _value = (float)value.get<long>();
+            else
+                _value = (float)value.get<double>();
+            _chunk.add_parameter_by_tag(value_name, _value);
+            
+        }
     }
 
 public:

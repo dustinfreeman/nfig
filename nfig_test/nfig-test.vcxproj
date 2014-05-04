@@ -13,6 +13,9 @@
   <ItemGroup>
     <ClCompile Include="nfig-test\main.cpp" />
   </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="nfig-test\util.h" />
+  </ItemGroup>
   <PropertyGroup Label="Globals">
     <ProjectGuid>{15F09E1F-10FF-4EC0-85BE-536E85330224}</ProjectGuid>
     <Keyword>Win32Proj</Keyword>

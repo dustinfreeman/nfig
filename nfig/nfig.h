@@ -7,14 +7,14 @@
 #include <picojson.h>
 #define pj picojson
 
+#define _DEFAULT_BOOL true
+#define _DEFAULT_INT -1
+#define _DEFAULT_FLOAT -0.5f
+#define _DEFAULT_CHAR_STR "default string"
+#define _DEFAULT_STR "default std::string"
+
 class nfig {
 protected:
-    const bool _DEFAULT_BOOL = true;
-    const int _DEFAULT_INT = -1;
-    const float _DEFAULT_FLOAT = -0.5f;
-    const char* _DEFAULT_CHAR_STR = "default string";
-    const std::string _DEFAULT_STR = "default std::string";
-    
     //=================
     rfr::Chunk _chunk;
     

@@ -327,3 +327,4 @@ FakesAssemblies/
 # UNKNOWN: recommended by others, but I can't discover what these files are
 #
 # ...none. Everything is now explained.
+nfig_test/config_writeout.json.txt

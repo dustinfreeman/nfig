@@ -66,13 +66,16 @@ public:
     template<class T>
     T get_default_value();
     
-    bool load_file(std::string filename) {
-		_filename = filename;
+	bool reload() {
+		if (_filename.size() == 0) {
+			std::cerr << "Filename not established \n";
+			return false;
+		}
 
-        std::ifstream file;
+		std::ifstream file;
         file.open(_filename);
         if (!file.is_open()) {
-            std::cerr << "Error " << filename << " file not open.\n";
+            std::cerr << "Error " << _filename << " file not open.\n";
             return false;
         }
         
@@ -98,6 +101,12 @@ public:
 		file.close();
 
         return true;
+	}
+
+    bool load_file(std::string filename) {
+		_filename = filename;
+
+		return reload();
 	}
 
 	void write_out() {

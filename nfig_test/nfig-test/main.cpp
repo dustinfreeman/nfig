@@ -11,6 +11,8 @@
 
 #include <nfig.h>
 
+#include "util.h"
+
 #define NFIG_FILENAME "../../config.json.txt"
 
 struct Colour {

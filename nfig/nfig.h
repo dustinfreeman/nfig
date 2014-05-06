@@ -18,8 +18,6 @@
 #define NFIG_PREFIX_FLOAT "F_"
 #define NFIG_PREFIX_STR "S_"
 
-#include "util.h"
-
 class nfig {
 protected:
     //=================
@@ -117,7 +115,7 @@ public:
 		
 		pj::value::object root_object;
 		//iterate over chunk parameters and write out
-		std::map<std::string, std::shared_ptr<rfr::AbstractParam>>::iterator param_it;
+		std::map<std::string, std::shared_ptr<rfr::AbstractParam> >::iterator param_it;
 		for (param_it = _chunk.params.begin(); param_it != _chunk.params.end(); param_it++) {
 			//write_value(param_it->first, param_it->second);
 			
@@ -134,8 +132,8 @@ public:
 		}
 
 		bool prettify = true;
-		std::string seralized = root.serialize(prettify);
-		file << seralized;
+		std::string serialized = root.serialize(prettify);
+		file << serialized;
 
 		file.close();
 	}

@@ -5,7 +5,7 @@ A header-only C++ config library with a focus on ease of spontaneous use over pe
 
     int width = nfig.get<int>("I_WIDTH")
 
-The way I'm using nfig is that I NEVER, EVER create corresponding variables to config value, as with the "width" variable above. This choice is made to reduce the overhead of creating new config values. Trying to code spontaneously when I need to create new config values in different locations in code (globals extern, globals local, parsing config, config file itself) is awful.
+Trying to code spontaneously when I need to create new config values in different locations in code (globals extern, globals local, parsing config, config file itself) is awful. I rarely make a local copy of a config variable, unless I'm going over a high-performance section of code.
 
 Config values are created in a JSON-formatted file, for example:
 

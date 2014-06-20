@@ -141,6 +141,9 @@ public:
     template<class T>
 	T get (std::string value_name) {
         T* value = _chunk.get_parameter_by_tag<T>(value_name);
+
+		//TODO some type checking here, for warnings?
+		//i.e., get<bool>("F_ ... ")
         
         if (value == nullptr) {
             std::cerr << "Warning: nfig could not find value " << value_name << ". Returning default value.\n";

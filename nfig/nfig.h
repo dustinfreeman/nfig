@@ -93,6 +93,7 @@ public:
             ++i) {
             //std::cout << i->first << "\n";
             
+			//BUG: below line finds a null pointer in debug mode.
             load_value(i->first, i->second);
         }
 

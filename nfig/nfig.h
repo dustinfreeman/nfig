@@ -4,6 +4,7 @@
 
 #include <riffer.h>
 
+#define PICOJSON_USE_INT64
 #include <picojson.h>
 #define pj picojson
 

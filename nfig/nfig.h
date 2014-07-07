@@ -26,22 +26,17 @@ protected:
 	std::string _filename;
     
     virtual void load_value(std::string value_name, pj::value value) {
-        // this function should be overloaded for custom types.
-        if (value_name.substr(0, 2) == NFIG_PREFIX_BOOL)
+        //this function should be overloaded for custom types.
+        
+		if (value_name.substr(0, 2) == NFIG_PREFIX_BOOL)
             _chunk.add_parameter_by_tag(value_name, value.get<bool>());
         else if (value_name.substr(0, 2) == NFIG_PREFIX_INT)
             _chunk.add_parameter_by_tag(value_name, (int)value.get<double>());
         else if (value_name.substr(0, 2) == NFIG_PREFIX_STR)
             _chunk.add_parameter_by_tag(value_name, value.get<std::string>());
         else if (value_name.substr(0, 2) == NFIG_PREFIX_FLOAT) {// || value_name.find("_") == std::string::npos)
-            float _value;
-            //error catching in case someone forgets to add ".0" at the end of a number to force it to float.
-            if (value.is<int>())
-                _value = (float)value.get<double>();
-            else
-                _value = (float)value.get<double>();
+            float _value = (float)value.get<double>();
             _chunk.add_parameter_by_tag(value_name, _value);
-            
         }
     }
 

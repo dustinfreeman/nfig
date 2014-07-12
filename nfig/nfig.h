@@ -79,8 +79,6 @@ public:
         
         if (! err.empty()) {
             std::cerr << " file parse error: " << err << std::endl;
-        } else {
-            //std::cout << "No parse error!\n";
         }
 
         pj::value::object obj = root.get<pj::object>();
